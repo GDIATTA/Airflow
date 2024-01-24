@@ -10,7 +10,7 @@ from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 
 
 default_args = {
-    'owner': 'coder2j',
+    'owner': 'gauss',
     'retries': 5,
     'retry_delay': timedelta(minutes=10)
 }
@@ -46,7 +46,7 @@ def postgres_to_s3(ds_nodash, next_ds_nodash):
 with DAG(
     dag_id="dag_with_postgres_hooks_v04",
     default_args=default_args,
-    start_date=datetime(2022, 4, 30),
+    start_date=datetime(2024, 1, 24),
     schedule_interval='@daily'
 ) as dag:
     task1 = PythonOperator(
