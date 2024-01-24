@@ -4,14 +4,14 @@ from airflow.decorators import dag, task
 
 
 default_args = {
-    'owner': 'coder2j',
+    'owner': 'gauss',
     'retries': 5,
     'retry_delay': timedelta(minutes=5)
 }
 
 @dag(dag_id='dag_with_taskflow_api_v02', 
      default_args=default_args, 
-     start_date=datetime(2021, 10, 26), 
+     start_date=datetime(2024, 1, 24), 
      schedule_interval='@daily')
 def hello_world_etl():
 
