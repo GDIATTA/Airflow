@@ -33,7 +33,7 @@ with DAG(
     default_args=default_args,
     dag_id='our_dag_with_python_operator_v07',
     description='Our first dag using python operator',
-    start_date=datetime(2021, 10, 6),
+    start_date=datetime(2024, 1, 24),
     schedule_interval='@daily'
 ) as dag:
     task1 = PythonOperator(
