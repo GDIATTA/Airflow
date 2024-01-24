@@ -5,7 +5,7 @@ from airflow.providers.amazon.aws.sensors.s3_key import S3KeySensor
 
 
 default_args = {
-    'owner': 'coder2j',
+    'owner': 'gauss',
     'retries': 5,
     'retry_delay': timedelta(minutes=10)
 }
@@ -13,7 +13,7 @@ default_args = {
 
 with DAG(
     dag_id='dag_with_minio_s3_v02',
-    start_date=datetime(2022, 2, 12),
+    start_date=datetime(2024, 1, 24),
     schedule_interval='@daily',
     default_args=default_args
 ) as dag:
