@@ -5,7 +5,7 @@ from airflow.operators.bash import BashOperator
 
 
 default_args = {
-    'owner': 'coder2j',
+    'owner': 'gauss',
     'retries': 5,
     'retry_delay': timedelta(minutes=5)
 }
@@ -13,7 +13,7 @@ default_args = {
 with DAG(
     default_args=default_args,
     dag_id="dag_with_cron_expression_v04",
-    start_date=datetime(2021, 11, 1),
+    start_date=datetime(2024, 1, 24),
     schedule_interval='0 3 * * Tue-Fri'
 ) as dag:
     task1 = BashOperator(
