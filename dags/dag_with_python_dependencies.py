@@ -11,14 +11,20 @@ default_args = {
 }
 
 
-def get_sklearn():
-    import sklearn
-    print(f"sklearn with version: {sklearn.__version__} ")
+#def get_sklearn():
+    #import sklearn
+    #print(f"sklearn with version: {sklearn.__version__} ")
+def affic():
+
+    return 'x+y'
+    #name = kwargs.get("name")
+    #prenom = kwargs.get("prenom")
+    #print("Nom :" +name, "Prenom :"+prenom)
 
 
-def get_matplotlib():
-    import matplotlib
-    print(f"matplotlib with version: {matplotlib.__version__}")
+#def get_matplotlib():
+    #import matplotlib
+    #print(f"matplotlib with version: {matplotlib.__version__}")
 
 
 with DAG(
@@ -28,13 +34,16 @@ with DAG(
     schedule_interval='@daily'
 ) as dag:
     task1 = PythonOperator(
-        task_id='get_sklearn',
-        python_callable=get_sklearn
+        task_id='affic',
+        #python_callable=get_sklearn
+        python_callable=affic
+        #op_kwargs={"name":"DIATTA","prenom":"Gauss"}
     )
     
-    task2 = PythonOperator(
-        task_id='get_matplotlib',
-        python_callable=get_matplotlib
-    )
+    #task2 = PythonOperator(
+      #  task_id='get_matplotlib',
+       # python_callable=get_matplotlib
+    #)
 
-    task1 >> task2
+    task1 
+    #>> task2

@@ -15,7 +15,7 @@ with DAG(
     dag_id='our_first_dag_v5',
     default_args=default_args,
     description='This is our first dag that we write',
-    start_date=datetime(2024, 1, 24, 2),
+    start_date=datetime(2024, 2, 5),
     schedule_interval='@daily'
 ) as dag:
     task1 = BashOperator(
@@ -28,10 +28,10 @@ with DAG(
         bash_command="echo hey, I am task2 and will be running after task1!"
     )
 
-    task3 = BashOperator(
-        task_id='thrid_task',
-        bash_command="echo hey, I am task3 and will be running after task1 at the same time as task2!"
-    )
+    #task3 = BashOperator(
+    #    task_id='thrid_task',
+       # bash_command="echo hey, I am task3 and will be running after task1 at the same time as task2!"
+   # )
 
     # Task dependency method 1
     # task1.set_downstream(task2)
@@ -42,4 +42,5 @@ with DAG(
     # task1 >> task3
 
     # Task dependency method 3
-    task1 >> [task2, task3]
+    task2 >> task1
+    
